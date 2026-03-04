@@ -1,0 +1,61 @@
+{% extends 'main.html' %}
+
+{% block title %}Quote{% endblock %}
+
+{% block content %}
+
+<nav class="edit">
+    {% if user.is_authenticated and quote.created_by == user %}
+    <a href="{% url 'content:editquote' quote.id %}">Edit</a>
+    <a href="{% url 'content:deletequote' quote.id %}">Delete</a>
+    {% endif %}
+
+
+    <p><a href="{% url 'content:main' %}">Back</a></p>
+</nav>
+
+<main class="quote">
+    <h1>{{quote.thinker.name}}</h1>
+
+    {% if quote.thinker.picture %}
+    <img class="image" src="{{ quote.thinker.picture.url }}" alt="{{quote.thinker.name}}">
+    {% endif %}
+
+
+    <p class="mainquote">&#8220;{{quote.quote}}&#8221;</p>
+
+    <p><span class="underline">Some context & info:</span> {{quote.explanation}}</p>
+
+    {% if quote.reference %}
+    <p>This quote is from the work <span class="underline">{{quote.reference}}</span></p>
+    {% endif %}
+</main>
+
+{% if user.is_authenticated %}
+<form action="" method="post">
+    {% csrf_token %}
+    <button type="submit" class="unliked">
+        {% if user in quote.likes.all %}
+        Unlike
+        {% else %}
+        Like
+        {% endif %}
+    </button>
+</form>
+{% endif %}
+
+<p>This quote was liked {{quote.likes.count}} {% if quote.likes.count == 1 %} time {% else %} times {% endif %}</p>
+
+<nav class="navquote">
+
+    {% if prev_quote %}
+    <a href="{% url 'content:quote' prev_quote.id %}">&#8249;&#8249; Previous quote</a>
+    {% endif %}
+    <div style="text-align: right;">
+        {% if next_quote %}
+        <a href="{% url 'content:quote' next_quote.id %}" style="text-align: right;"> Next quote &#8250;&#8250;</a>
+        {% endif %}
+    </div>
+</nav>
+
+{% endblock %}

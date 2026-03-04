@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+{% block title %}Add Quote{% endblock %}
+
+{% block content %}
+
+<p>Thinker not found? <a href="{% url 'content:addthinker' %}">Add a new thinker!</a></p>
+{% load crispy_forms_tags %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="Submit">
+    <a href="{% url 'content:main' %}">Go back</a>
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'main.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+
+<main class="profile">
+    {% if user.is_authenticated %}
+
+    <div class="yourquotes">
+        {% if quotes %}
+
+
+        <h1>Your quotes</h1>
+
+        <ul class="content">
+            {% for quote in quotes %}
+            <li><a href="{% url 'content:quote' quote.id %}">{{quote.snippet}}</a></li>
+            {% endfor %}
+        </ul>
+
+        {% endif %}
+    </div>
+
+    <div class="yourthinkers">
+        {% if thinkers %}
+        <h1>Your thinkers</h1>
+        <ul class="content">
+            {% for thinker in thinkers %}
+            <li>{{thinker.name}} | <a href="{% url 'content:editthinker' thinker.id %}">edit</a> | <a
+                    href="{% url 'content:deletethinker' thinker.id %}">delete</a></li>
+            {% endfor %}
+        </ul>
+
+        {% endif %}
+    </div>
+
+    {% if not quotes and not thinkers %}
+    <p>You still have not added any quotes or thinkers!</p>
+    {% endif %}
+
+    <div class="yourlikes">
+        {% if likes %}
+        <h1>Liked quotes</h1>
+
+        <ul class="content">
+            {% for liked in likes %}
+            <li><a href="{% url 'content:quote' liked.id %}">{{liked.snippet}}</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+
+    {% else %}
+
+    <p>Nothing to see here :D</p>
+</main>
+
+{% endif %}
+
+{% endblock %}

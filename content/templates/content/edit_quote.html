@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block title %}Edit Quote{% endblock %}
+
+{% block content %}
+
+<h2>Now editing {{quote.snippet}}</h2>
+
+{% load crispy_forms_tags %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{form|crispy}}
+    <input type="submit" value="Submit">
+    <a href="{% url 'content:quote' quote.id %}">Go back</a>
+</form>
+
+
+{% endblock %}

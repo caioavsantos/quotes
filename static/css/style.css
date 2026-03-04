@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #cbcbcb;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+    color:
+        hsla(0, 90%, 46%, 0.941);
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    color: hsla(0, 90%, 46%, 0.593);
+}
+
+ul ::marker {
+    content: none;
+}
+
+main {
+    margin: 1rem auto 1rem;
+    padding: 1rem;
+    text-align: center;
+    border: 0.1em solid #000;
+    border-radius: 2rem;
+    max-width: 700px;
+    display: flow-root;
+}
+
+.main-container {
+    display: grid;
+    /* grid-template-columns: 2fr 12fr 1fr; */
+    grid-template-columns: 2fr 12fr 1.5fr;
+    min-height: 100vh;
+}
+
+.sidebar {
+    border-right: solid #2f2f2f1a;
+    padding: 0.5rem 1rem;
+}
+
+.block {
+    padding: 0.5rem 1rem;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    /*     align-items: center; */
+    /*     justify-content: space-between; */
+    padding: 0.5em 1em;
+    border-bottom: solid #2f2f2f1a;
+    position: sticky;
+    /* see if problematic */
+}
+
+.banner {
+    /*     text-align: center; */
+    flex: 0 0 auto;
+    font-size: 0.5rem;
+    font-weight: bolder;
+}
+
+.navigation {
+    position: relative;
+    display: flex;
+    gap: 3rem;
+    font-size: 1.3rem;
+    justify-content: center;
+    flex: 1;
+    margin-left: -5em;
+    /* margin: 0 auto; */
+    /*     flex-wrap: wrap; */
+}
+
+.navigation a {
+    color: rgb(93, 93, 93);
+}
+
+.navigation a:focus,
+.navigation a:hover {
+    color: rgba(93, 93, 93, 0.693);
+}
+
+.login {
+    margin-top: 0.5rem;
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+.profileBtn {
+    color:
+        hsla(0, 90%, 46%, 0.941);
+    text-decoration: none;
+}
+
+.profileBtn:hover,
+.profileBtn:focus {
+    color: hsla(0, 90%, 46%, 0.593);
+    cursor: pointer;
+}
+
+.loginbox {
+    position: absolute;
+    display: none;
+    background-color: hsla(0, 0%, 18%, 1);
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    border: solid #2f2f2f1a;
+    z-index: 1;
+}
+
+.loginbox a {
+    color:
+        whitesmoke;
+    text-decoration: none;
+}
+
+.loginbox a:hover,
+.loginbox a:focus {
+    color: rgba(245, 245, 245, 0.821);
+}
+
+.content {
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    flex: 0 0 auto;
+
+}
+
+.quote h1 {
+    margin-bottom: 1rem;
+}
+
+.quote p {
+    margin-bottom: 1rem;
+    text-align: justify;
+    width: 55%;
+    margin-left: auto;
+}
+
+.mainquote {
+    font-size: 1.2rem;
+}
+
+.image {
+    float: left;
+    width: 42%;
+    border-radius: 2rem;
+}
+
+.underline {
+    text-decoration: underline;
+    color: rgb(93, 93, 93);
+}
+
+form div {
+    padding: 0.5rem;
+}
+
+.form-text {
+    font-size: 0.9rem
+}

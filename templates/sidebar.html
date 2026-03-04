@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <h2>Thinkers</h2>
+        <ul>
+            {% for thinker in thinkers %}
+            <!-- <li><a href="/quotes/?q={{thinker.name}}">{{thinker}}</a></li> -->
+            <li><a href="{% url 'content:main' %}?q={{thinker.name|urlencode}}">{{thinker}}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
+</body>
+
+</html>

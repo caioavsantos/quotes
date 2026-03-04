@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<nav class="navbar">
+    <div class="banner">
+        <h1>Another quote website!</h1>
+        <h2>Exactly what the world needed</h2>
+    </div>
+
+    <div class="navigation">
+        <a href="{% url 'base:home' %}">Home</a>
+        <a href="{% url 'content:main' %}">Quotes</a>
+        <a href="{% url 'base:about' %}">About</a>
+    </div>
+
+    <div class="login">
+        {% if user.is_authenticated %}
+
+        <p>Hello <span class="profileBtn">{{user.username}}!</span></p>
+        <div class="loginbox">
+            <p><a href="{% url 'base:profile' %}">Profile</a></p>
+            <p><a href="{% url 'base:logout' %}">Logout</a></p>
+        </div>
+        {% else %}
+        <a href="{% url 'base:login' %}">Login</a>
+        {% endif %}
+    </div>
+    <!--  <hr> -->
+</nav>
+
+</html>

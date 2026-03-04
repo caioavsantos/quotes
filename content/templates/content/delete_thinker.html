@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block title %}Delete Thinker{% endblock %}
+
+{% block content %}
+<h2>Deleting {{thinker.name}}</h2>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <p>Are you sure you want to delete this thinker?</p>
+    <p><a href="{{request.META.HTTP_REFERER}}">Go back</a></p>
+    <p><input type="submit" value="Delete"></p>
+</form>
+
+{% endblock %}

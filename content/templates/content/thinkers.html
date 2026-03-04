@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Thinkers{% endblock %}</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="form_container">
+        <form action="" method="get">
+            <input type="text" name="q" placeholder="Search Thinker, Quote or User" style="width: 15%;">
+        </form>
+    </div>
+    <main class="quotelist">
+        <h1>Here are some quotes</h1>
+        <ul class="content">
+            {% for quote in quotes %}
+            <li><a href="{% url 'content:quote' quote.id %}">&#8220;{{quote.snippet}}&#8221;</a></li>
+            {% endfor %}
+        </ul>
+
+    </main>
+    <p>Total quotes found: {{quotes | length }}</p>
+
+    <nav class="create">
+        <a href="{% url 'content:addquote' %}">Add a new quote</a>
+    </nav>
+    {% endblock %}
+</body>
+
+</html>

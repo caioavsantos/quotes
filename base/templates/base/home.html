@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Home{% endblock %}</title>
+</head>
+
+<body>
+    {% block content %}
+    {% if quote %}
+    <main class="quote">
+        <h1 style="font-size: 1.2rem;">Quote of the day:</h1>
+
+        <h1>{{quote.thinker.name}}</h1>
+
+        {% if quote.thinker.picture %}
+        <img class="image" src="{{ quote.thinker.picture.url }}" alt="{{quote.thinker.name}}">
+        {% endif %}
+
+
+        <p class="mainquote">&#8220;{{quote.quote}}&#8221;</p>
+
+        <p><span class="underline">Some context & info:</span> {{quote.explanation}}</p>
+        {% if quote.reference %}
+        <p>This quote is from the work <span class="underline">{{quote.reference}}</span></p>
+        {% endif %}
+    </main>
+    {% else %}
+
+    <main class="home">
+        <h1>This is the homepage</h1>
+    </main>
+    {% endif %}
+
+    {% endblock %}
+
+
+</body>
+
+</html>
